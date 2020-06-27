@@ -77,8 +77,8 @@ def get_posts():
     posts = session.query(Article).all()
     return jsonify(posts=[a.serialize for a in posts])
 
-def get_post(book_id):
-    posts = session.query(Article).filter_by(id=post_id).one()
+def get_post(id):
+    posts = session.query(Article).filter_by(id=id).one()
     return jsonify(posts=posts.serialize)
 
 def makeANewPost(title, intro, text):
@@ -132,4 +132,4 @@ def postFunctionId(id):
 
 if __name__ == '__main__':
     app.debug = True
-    app.run(host='127.0.0.1')
+    app.run(host='0.0.0.0')
